@@ -2,10 +2,10 @@ public class Usuario {
     private static int cantUsuario;
     private int codigo;
     private String usuario;
-    private String contrasena;
+    private char[] contrasena;
     //
     public Usuario() {}
-    public Usuario(String usuario, String contrasena) {
+    public Usuario(String usuario, char[] contrasena) {
         cantUsuario++;
         this.codigo = cantUsuario;
         this.usuario = usuario;
@@ -16,10 +16,20 @@ public class Usuario {
         return codigo;
     }
 
-    public String getContrasena() {
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public void setContrasena(char[] contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    public char[] getContrasena() {
         return contrasena;
     }
+
     public String getUsuario() {
         return usuario;
     }
+
 }
