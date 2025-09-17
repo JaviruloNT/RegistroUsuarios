@@ -93,7 +93,7 @@ public class RegisterFrame extends JFrame implements ActionListener {
             return;
         }
         // Registrar usuario
-        Usuario usuario = new Usuario(usrField.getText(),String.valueOf(pwField.getPassword()));
+        Usuario usuario = new Usuario(usrField.getText(),pwField.getPassword());
         try (XMLEncoder encoder = new XMLEncoder(new FileOutputStream(file))) {
             encoder.writeObject(usuario);
         } catch (IOException ex) {
