@@ -16,6 +16,10 @@ public class Usuario {
         return codigo;
     }
 
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
