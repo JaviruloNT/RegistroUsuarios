@@ -87,8 +87,8 @@ public class LoginFrame extends JFrame implements ActionListener {
             toggleButtons();
             return;
         }
-        String path = "users/" + usrField.getText().toLowerCase() + ".xml";
-        File file = new File(path);
+        new File("users").mkdir();
+        File file = new File("users",usrField.getText().toLowerCase() + ".xml");
         // Verificar si no existe usuario con ese nombre
         if (!file.exists()) {
             new PopupFrame("Usuario o contrasena incorrectos.");

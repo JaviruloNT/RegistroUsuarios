@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.XMLEncoder;
 import java.io.*;
-import java.util.Locale;
 
 public class RegisterFrame extends JFrame implements ActionListener {
     boolean buttonsEnabled = true;
@@ -85,8 +84,8 @@ public class RegisterFrame extends JFrame implements ActionListener {
             toggleButtons();
             return;
         }
-        String path = "users/" + usrField.getText().toLowerCase() + ".xml";
-        File file = new File(path);
+        new File("users").mkdir();
+        File file = new File("users",usrField.getText().toLowerCase() + ".xml");
         // Verificar si existe usuario con ese nombre
         if (file.exists()) {
             new PopupFrame("El usuario ya existe.");
