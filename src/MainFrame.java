@@ -12,6 +12,7 @@ public class MainFrame extends JFrame {
         this.setLayout(new FlowLayout());
         this.setResizable(false);
         this.setSize(WIDTH,HEIGHT);
+        this.setLocationRelativeTo(null);
         // Label Bienvenida
         title = new JLabel("Sistema");
         title.setPreferredSize(new Dimension(150,50));

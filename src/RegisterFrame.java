@@ -22,6 +22,7 @@ public class RegisterFrame extends JFrame implements ActionListener {
         this.setLayout(new FlowLayout());
         this.setResizable(false);
         this.setSize(WIDTH,HEIGHT);
+        this.setLocationRelativeTo(null);
         // Label Titulo
         title = new JLabel("Registre su cuenta");
         title.setPreferredSize(new Dimension(200,50));
