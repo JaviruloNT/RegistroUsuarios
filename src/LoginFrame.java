@@ -13,7 +13,7 @@ public class LoginFrame extends JFrame implements ActionListener {
     JTextField usrField;
     JLabel pwLabel;
     JPasswordField pwField;
-    JButton registerButton;
+    JButton loginButton;
     final int WIDTH = 300;
     final int HEIGHT = 400;
     //
@@ -54,12 +54,12 @@ public class LoginFrame extends JFrame implements ActionListener {
         pwField.setPreferredSize(new Dimension(100,25));
         pwField.addActionListener(this);
         this.add(pwField);
-        // Button Registrar
-        registerButton = new JButton("Registrar");
-        registerButton.setPreferredSize(new Dimension(100,50));
-        registerButton.addActionListener(this);
-        registerButton.setFocusable(false);
-        this.add(registerButton);
+        // Button Ingresar
+        loginButton = new JButton("Ingresar");
+        loginButton.setPreferredSize(new Dimension(100,50));
+        loginButton.addActionListener(this);
+        loginButton.setFocusable(false);
+        this.add(loginButton);
         //
         this.setVisible(true);
     }
@@ -72,7 +72,7 @@ public class LoginFrame extends JFrame implements ActionListener {
     // Activar/desactivar botones
     private void toggleButtons() {
         buttonsEnabled = !buttonsEnabled;
-        registerButton.setEnabled(buttonsEnabled);
+        loginButton.setEnabled(buttonsEnabled);
         usrField.setEnabled(buttonsEnabled);
         pwField.setEnabled(buttonsEnabled);
     }
