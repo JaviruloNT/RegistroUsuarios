@@ -81,7 +81,7 @@ public class RegisterFrame extends JFrame implements ActionListener {
         toggleButtons();
         // Verificar campos vacios
         if (usrField.getText().isEmpty() || pwField.getPassword().length == 0) {
-            System.out.println("Usuario o contrasena vacios.");
+            new PopupFrame("Usuario o contrasena vacios.");
             toggleButtons();
             return;
         }
@@ -89,7 +89,7 @@ public class RegisterFrame extends JFrame implements ActionListener {
         File file = new File(path);
         // Verificar si existe usuario con ese nombre
         if (file.exists()) {
-            System.out.println("El usuario ya existe.");
+            new PopupFrame("El usuario ya existe.");
             toggleButtons();
             return;
         }
@@ -101,6 +101,7 @@ public class RegisterFrame extends JFrame implements ActionListener {
             ex.printStackTrace();
         }
         // Cerrar
+        new PopupFrame("El usuario ha sido creado con exito.");
         this.dispose();
     }
 }

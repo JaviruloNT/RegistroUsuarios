@@ -83,7 +83,7 @@ public class LoginFrame extends JFrame implements ActionListener {
         toggleButtons();
         // Verificar campos vacios
         if (usrField.getText().isEmpty() || pwField.getPassword().length == 0) {
-            System.out.println("Usuario o contrasena vacios.");
+            new PopupFrame("Usuario o contrasena vacios.");
             toggleButtons();
             return;
         }
@@ -91,7 +91,7 @@ public class LoginFrame extends JFrame implements ActionListener {
         File file = new File(path);
         // Verificar si no existe usuario con ese nombre
         if (!file.exists()) {
-            System.out.println("Usuario o contrasena incorrectos.");
+            new PopupFrame("Usuario o contrasena incorrectos.");
             toggleButtons();
             return;
         }
@@ -104,7 +104,7 @@ public class LoginFrame extends JFrame implements ActionListener {
         }
         // Verificar si la contrasena es correcta
         if (!Arrays.equals(usuario.getContrasena(),pwField.getPassword())) {
-            System.out.println("Usuario o contrasena incorrectos.");
+            new PopupFrame("Usuario o contrasena incorrectos.");
             toggleButtons();
             return;
         }
