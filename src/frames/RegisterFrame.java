@@ -1,45 +1,44 @@
+package frames;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.beans.XMLDecoder;
+import java.beans.XMLEncoder;
 import java.io.*;
-import java.util.Arrays;
 
-public class LoginFrame extends JFrame implements ActionListener {
+public class RegisterFrame extends JFrame implements ActionListener {
     boolean buttonsEnabled = true;
-    JFrame mainFrame;
     JLabel title;
     JLabel usrLabel;
     JTextField usrField;
     JLabel pwLabel;
     JPasswordField pwField;
-    JButton loginButton;
+    JButton registerButton;
     final int WIDTH = 300;
     final int HEIGHT = 400;
     //
-    public LoginFrame(JFrame mainFrame) {
-        this.mainFrame = mainFrame;
+    public RegisterFrame() {
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setLayout(new FlowLayout());
         this.setResizable(false);
         this.setSize(WIDTH,HEIGHT);
         this.setLocationRelativeTo(null);
         // Label Titulo
-        title = new JLabel("Inicie sesion");
+        title = new JLabel("Registre su cuenta");
         title.setPreferredSize(new Dimension(200,50));
         title.setFocusable(false);
         title.setHorizontalAlignment(0);
         title.setVerticalAlignment(0);
         this.add(title);
-        // Label Usuario
+        // Label frames.Usuario
         usrLabel = new JLabel("Usuario:");
         usrLabel.setPreferredSize(new Dimension(100,50));
         usrLabel.setFocusable(false);
         usrLabel.setHorizontalAlignment(0);
         usrLabel.setVerticalAlignment(0);
         this.add(usrLabel);
-        // Field Usuario
+        // Field frames.Usuario
         usrField = new JTextField();
         usrField.setPreferredSize(new Dimension(100,25));
         usrField.addActionListener(this);
@@ -56,25 +55,25 @@ public class LoginFrame extends JFrame implements ActionListener {
         pwField.setPreferredSize(new Dimension(100,25));
         pwField.addActionListener(this);
         this.add(pwField);
-        // Button Ingresar
-        loginButton = new JButton("Ingresar");
-        loginButton.setPreferredSize(new Dimension(100,50));
-        loginButton.addActionListener(this);
-        loginButton.setFocusable(false);
-        this.add(loginButton);
+        // Button Registrar
+        registerButton = new JButton("Registrar");
+        registerButton.setPreferredSize(new Dimension(100,50));
+        registerButton.addActionListener(this);
+        registerButton.setFocusable(false);
+        this.add(registerButton);
         //
         this.setVisible(true);
     }
     //
 
-    public static void main(String[] args) {
-        new LoginFrame(new MainFrame());
-    }
+//    public static void main(String[] args) {
+//        new RegisterFrame();
+//    }
 
     // Activar/desactivar botones
     private void toggleButtons() {
         buttonsEnabled = !buttonsEnabled;
-        loginButton.setEnabled(buttonsEnabled);
+        registerButton.setEnabled(buttonsEnabled);
         usrField.setEnabled(buttonsEnabled);
         pwField.setEnabled(buttonsEnabled);
     }
@@ -83,34 +82,27 @@ public class LoginFrame extends JFrame implements ActionListener {
         toggleButtons();
         // Verificar campos vacios
         if (usrField.getText().isEmpty() || pwField.getPassword().length == 0) {
-            new PopupFrame("Usuario o contrasena vacios.");
+            new PopupFrame("frames.Usuario o contrasena vacios.");
             toggleButtons();
             return;
         }
         new File("users").mkdir();
         File file = new File("users",usrField.getText().toLowerCase() + ".xml");
-        // Verificar si no existe usuario con ese nombre
-        if (!file.exists()) {
-            new PopupFrame("Usuario o contrasena incorrectos.");
+        // Verificar si existe usuario con ese nombre
+        if (file.exists()) {
+            new PopupFrame("El usuario ya existe.");
             toggleButtons();
             return;
         }
-        //  Iniciar sesion
-        Usuario usuario = null;
-        try (XMLDecoder decoder = new XMLDecoder(new FileInputStream(file))) {
-            usuario = (Usuario) decoder.readObject();
+        // Registrar usuario
+        Usuario usuario = new Usuario(usrField.getText(),pwField.getPassword());
+        try (XMLEncoder encoder = new XMLEncoder(new FileOutputStream(file))) {
+            encoder.writeObject(usuario);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        // Verificar si la contrasena es correcta
-        if (!Arrays.equals(usuario.getContrasena(),pwField.getPassword())) {
-            new PopupFrame("Usuario o contrasena incorrectos.");
-            toggleButtons();
-            return;
-        }
         // Cerrar
-        mainFrame.dispose();
-        new SystemFrame(usuario);
+        new PopupFrame("El usuario ha sido creado con exito.");
         this.dispose();
     }
 }

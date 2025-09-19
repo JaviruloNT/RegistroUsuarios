@@ -1,3 +1,5 @@
+package frames;
+
 public class Usuario {
     private String usuario;
     private char[] contrasena;

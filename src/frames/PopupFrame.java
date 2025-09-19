@@ -1,3 +1,5 @@
+package frames;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -31,7 +33,7 @@ public class PopupFrame extends JFrame {
         this.setVisible(true);
     }
 
-    public static void main(String[] args) {
-        new PopupFrame("Test");
-    }
+//    public static void main(String[] args) {
+//        new PopupFrame("Test");
+//    }
 }
