@@ -28,9 +28,7 @@ public class MainFrame extends JFrame {
         this.add(registerButton);
         // Boton Login
         loginButton = new JButton("Ingresar");
-        loginButton.addActionListener(e -> {
-            new LoginFrame();
-        });
+        loginButton.addActionListener(e -> new LoginFrame(MainFrame.this));
         loginButton.setFocusable(false);
         loginButton.setPreferredSize(new Dimension(150,50));
         this.add(loginButton);

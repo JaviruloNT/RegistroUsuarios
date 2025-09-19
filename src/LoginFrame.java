@@ -8,6 +8,7 @@ import java.util.Arrays;
 
 public class LoginFrame extends JFrame implements ActionListener {
     boolean buttonsEnabled = true;
+    JFrame mainFrame;
     JLabel title;
     JLabel usrLabel;
     JTextField usrField;
@@ -17,7 +18,8 @@ public class LoginFrame extends JFrame implements ActionListener {
     final int WIDTH = 300;
     final int HEIGHT = 400;
     //
-    public LoginFrame() {
+    public LoginFrame(JFrame mainFrame) {
+        this.mainFrame = mainFrame;
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setLayout(new FlowLayout());
         this.setResizable(false);
@@ -66,7 +68,7 @@ public class LoginFrame extends JFrame implements ActionListener {
     //
 
     public static void main(String[] args) {
-        new LoginFrame();
+        new LoginFrame(new MainFrame());
     }
 
     // Activar/desactivar botones
@@ -108,6 +110,7 @@ public class LoginFrame extends JFrame implements ActionListener {
         }
         // Cerrar
         System.out.println("Acceso autorizado.");
+        mainFrame.dispose();
         this.dispose();
     }
 }
