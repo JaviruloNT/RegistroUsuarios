@@ -34,14 +34,14 @@ public class LoginFrame extends JFrame implements ActionListener {
         title.setHorizontalAlignment(0);
         title.setVerticalAlignment(0);
         this.add(title);
-        // Label frames.Usuario
+        // Label Usuario
         usrLabel = new JLabel("Usuario:");
         usrLabel.setPreferredSize(new Dimension(100,50));
         usrLabel.setFocusable(false);
         usrLabel.setHorizontalAlignment(0);
         usrLabel.setVerticalAlignment(0);
         this.add(usrLabel);
-        // Field frames.Usuario
+        // Field Usuario
         usrField = new JTextField();
         usrField.setPreferredSize(new Dimension(100,25));
         usrField.addActionListener(this);
@@ -85,7 +85,7 @@ public class LoginFrame extends JFrame implements ActionListener {
         toggleButtons();
         // Verificar campos vacios
         if (usrField.getText().isEmpty() || pwField.getPassword().length == 0) {
-            new PopupFrame("frames.Usuario o contrasena vacios.");
+            new PopupFrame("Usuario o contrasena vacios.");
             toggleButtons();
             return;
         }
@@ -93,7 +93,7 @@ public class LoginFrame extends JFrame implements ActionListener {
         File file = new File("users",usrField.getText().toLowerCase() + ".xml");
         // Verificar si no existe usuario con ese nombre
         if (!file.exists()) {
-            new PopupFrame("frames.Usuario o contrasena incorrectos.");
+            new PopupFrame("Usuario o contrasena incorrectos.");
             toggleButtons();
             return;
         }
@@ -106,7 +106,7 @@ public class LoginFrame extends JFrame implements ActionListener {
         }
         // Verificar si la contrasena es correcta
         if (!Arrays.equals(usuario.getContrasena(),pwField.getPassword())) {
-            new PopupFrame("frames.Usuario o contrasena incorrectos.");
+            new PopupFrame("Usuario o contrasena incorrectos.");
             toggleButtons();
             return;
         }

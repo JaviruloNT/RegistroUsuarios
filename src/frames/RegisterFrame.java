@@ -31,14 +31,14 @@ public class RegisterFrame extends JFrame implements ActionListener {
         title.setHorizontalAlignment(0);
         title.setVerticalAlignment(0);
         this.add(title);
-        // Label frames.Usuario
+        // Label Usuario
         usrLabel = new JLabel("Usuario:");
         usrLabel.setPreferredSize(new Dimension(100,50));
         usrLabel.setFocusable(false);
         usrLabel.setHorizontalAlignment(0);
         usrLabel.setVerticalAlignment(0);
         this.add(usrLabel);
-        // Field frames.Usuario
+        // Field Usuario
         usrField = new JTextField();
         usrField.setPreferredSize(new Dimension(100,25));
         usrField.addActionListener(this);
@@ -82,7 +82,7 @@ public class RegisterFrame extends JFrame implements ActionListener {
         toggleButtons();
         // Verificar campos vacios
         if (usrField.getText().isEmpty() || pwField.getPassword().length == 0) {
-            new PopupFrame("frames.Usuario o contrasena vacios.");
+            new PopupFrame("Usuario o contrasena vacios.");
             toggleButtons();
             return;
         }
