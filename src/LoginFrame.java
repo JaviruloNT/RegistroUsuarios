@@ -109,8 +109,8 @@ public class LoginFrame extends JFrame implements ActionListener {
             return;
         }
         // Cerrar
-        System.out.println("Acceso autorizado.");
         mainFrame.dispose();
+        new SystemFrame(usuario);
         this.dispose();
     }
 }
