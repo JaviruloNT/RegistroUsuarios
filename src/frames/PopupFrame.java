@@ -27,7 +27,7 @@ public class PopupFrame extends JFrame {
         okButton.setFocusable(false);
         okButton.setHorizontalAlignment(0);
         okButton.setVerticalAlignment(0);
-        okButton.addActionListener(e -> this.dispose());
+        okButton.addActionListener(_ -> this.dispose());
         this.add(okButton);
         //
         this.setVisible(true);

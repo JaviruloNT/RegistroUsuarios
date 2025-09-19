@@ -24,13 +24,13 @@ public class MainFrame extends JFrame {
         this.add(title);
         // Boton Registro
         registerButton = new JButton("Registrar");
-        registerButton.addActionListener(e -> new RegisterFrame());
+        registerButton.addActionListener(_ -> new RegisterFrame());
         registerButton.setFocusable(false);
         registerButton.setPreferredSize(new Dimension(150,50));
         this.add(registerButton);
         // Boton Login
         loginButton = new JButton("Ingresar");
-        loginButton.addActionListener(e -> new LoginFrame(MainFrame.this));
+        loginButton.addActionListener(_ -> new LoginFrame(MainFrame.this));
         loginButton.setFocusable(false);
         loginButton.setPreferredSize(new Dimension(150,50));
         this.add(loginButton);
