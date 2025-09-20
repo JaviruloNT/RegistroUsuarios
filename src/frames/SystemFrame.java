@@ -15,7 +15,7 @@ public class SystemFrame extends JFrame {
         this.setSize(WIDTH,HEIGHT);
         this.setLocationRelativeTo(null);
         // Label Titulo
-        title = new JLabel(String.format("Bienivenido, %s!",user.getUsuario()));
+        title = new JLabel(String.format("Bienvenido, %s!",user.getUsuario()));
         title.setPreferredSize(new Dimension(150,50));
         title.setFocusable(false);
         title.setHorizontalAlignment(0);
