@@ -21,6 +21,7 @@ public class MainPanel extends JPanel {
         textArea.setPreferredSize(new Dimension(700,300));
         textArea.setLineWrap(true);
         textArea.setEditable(false);
+        //
         this.add(textArea);
     }
 }

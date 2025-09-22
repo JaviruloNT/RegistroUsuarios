@@ -4,10 +4,13 @@ import javax.swing.*;
 import java.awt.*;
 
 public class SystemFrame extends JFrame {
+    JTabbedPane tabs;
+    JPanel mainPane;
+    JPanel userPane;
     JLabel title;
     JButton logoutButton;
-    final int WIDTH = 300;
-    final int HEIGHT = 400;
+    final int WIDTH = 800;
+    final int HEIGHT = 600;
     public SystemFrame(Usuario user) {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLayout(new FlowLayout());
