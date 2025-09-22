@@ -66,9 +66,9 @@ public class RegisterFrame extends JFrame implements ActionListener {
     }
     //
 
-//    public static void main(String[] args) {
-//        new RegisterFrame();
-//    }
+    public static void main(String[] args) {
+        new RegisterFrame();
+    }
 
     // Activar/desactivar botones
     private void toggleButtons() {

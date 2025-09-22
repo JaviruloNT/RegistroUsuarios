@@ -33,7 +33,7 @@ public class PopupFrame extends JFrame {
         this.setVisible(true);
     }
 
-//    public static void main(String[] args) {
-//        new PopupFrame("Test");
-//    }
+    public static void main(String[] args) {
+        new PopupFrame("Test");
+    }
 }
