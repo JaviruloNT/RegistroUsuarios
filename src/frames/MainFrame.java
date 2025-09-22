@@ -16,7 +16,7 @@ public class MainFrame extends JFrame {
         this.setSize(WIDTH,HEIGHT);
         this.setLocationRelativeTo(null);
         // Label Bienvenida
-        title = new JLabel("Sistema");
+        title = new JLabel("Autenticacion");
         title.setPreferredSize(new Dimension(150,50));
         title.setFocusable(false);
         title.setHorizontalAlignment(0);
